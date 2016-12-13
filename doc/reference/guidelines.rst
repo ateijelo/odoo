@@ -489,7 +489,7 @@ Programming in Odoo
   ease code reading and performance.
 
 
-Make your method works in batch
+Make your method work in batch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 When adding a function, make sure it can process multiple records. Typically,
 such method is decorated with ``api.multi`` decorator (or takes a list of *id*,
@@ -503,8 +503,8 @@ record.
         for record in self:
             record.do_cool_stuff()
 
-Avoid to use ``api.one``  decorator : this will probably not do what you expected,
-and extending a such method is not as easy than a *api.multi* method, since it
+Avoid using ``api.one``  decorator : this will probably not do what you expected,
+and extending a such method is not as easy as a *api.multi* method, since it
 returns a list of result (ordered by recordset ids).
 
 For performance issue, when developping a 'stat button' (for instance), do not
@@ -533,14 +533,14 @@ a method with a different context, the ``with_context`` method should be used :
     records.with_context(**additionnal_context).do_other_stuff() # additionnal_context values override native context ones
 
 Passing parameter in context can have dangerous side-effects. Since the values
-are propagated automatically, some behavior can appears. Calling ``create()``
+are propagated automatically, some behavior can appear. Calling ``create()``
 method of a model with *default_my_field* key in context will set the default
 value of *my_field* for the concerned model. But if curing this creation, other
 object (such as sale.order.line, on sale.order creation) having a field
 name *my_field*, their default value will be set too.
 
 If you need to create a key context influencing the behavior of some object,
-choice a good name, and eventually prefix it by the name of the module to
+choose a good name, and eventually prefix it by the name of the module to
 isolate its impact. A good example are the keys of ``mail`` module :
 *mail_create_nosubscribe*, *mail_notrack*, *mail_notify_user_signature*, ...
 
