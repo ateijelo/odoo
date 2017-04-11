@@ -48,3 +48,4 @@ To fetch odoo merge pull requests refs use this command:
 
     $ ./setup/setup_dev.py setup_git_review
 
+This line is added to trigger a Runbot build
